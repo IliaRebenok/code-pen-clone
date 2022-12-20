@@ -1,13 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
+
 import { basicSetup, minimalSetup } from '@uiw/codemirror-extensions-basic-setup';
 import { EditorView } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
-import CodeMirror from '@uiw/react-codemirror';
 import { createTheme } from '@uiw/codemirror-themes';
-import { javascript } from '@codemirror/lang-javascript';
-import { html } from '@codemirror/lang-html';
-import { css } from '@codemirror/lang-css';
 import { tags as t } from '@lezer/highlight';
+
 
 const state = EditorState.create({
     doc: 'my source code',
@@ -26,7 +23,7 @@ const view = new EditorView({
     state,
 });
 
-const myTheme = createTheme({
+const MyTheme = createTheme({
     theme: 'light',
     settings: {
         background: '#444',
@@ -56,39 +53,4 @@ const myTheme = createTheme({
     ],
 });
 
-const extensionsJS = [javascript({ jsx: true })];
-const extensionsXML = [html({ html: true })];
-const extensionsCSS = [css({ css: true })];
-
-export default function Editor(props) {
-    const extensions = props.language === 'js' ? extensionsJS :
-        props.language === 'css' ? extensionsCSS :
-            props.language === 'html' ? extensionsXML : extensionsJS;
-
-    const onChange = React.useCallback((value, viewUpdate) => {
-        console.log('value:', value);
-        
-    }, []);
-
-
-    return (
-        <div className='editor-container'>
-            <div className='editor-title'>
-                {props.language}
-                <button>
-                    O/C
-                </button>
-            </div>
-            <CodeMirror
-                theme={myTheme}
-                onChange={onChange}
-                height="100%"
-                width='100%'
-                className='code-mirror-wrapper'
-                extensions={extensions}
-                value={props.value}
-                
-            />
-        </div>
-    );
-}
+export default MyTheme;
