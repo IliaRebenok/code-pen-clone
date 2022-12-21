@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import MyTheme from './EditorTheme'
-import Editor from './Editor';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
+import EditorWrap from './EditorWrap';
+import { EditorView } from '@codemirror/view';
 
-const extensionsJS = [javascript({ jsx: true })];
-const extensionsXML = [html({ html: true })];
-const extensionsCSS = [css({ css: true })];
+const extensionsJS = [javascript({ jsx: true }), EditorView.lineWrapping];
+const extensionsXML = [html({ html: true  }), EditorView.lineWrapping];
+const extensionsCSS = [css({ css: true }), EditorView.lineWrapping];
 
 function App() {
 
@@ -27,31 +28,43 @@ function App() {
   return (
     <div>
       <div className='pane top-pane'>
-        <Editor language='js' value={js} onChange={setJs} />
-        <Editor language='css' value={css} onChange={setCss} />
-        {/* <Editor language='html' value={html} onChange={() => setHtml} /> */}
 
-        <div className='editor-container'>
-          <div className='editor-title'>
-            HTML
-            <button>
-              O/C
-            </button>
-          </div>
-          <CodeMirror
+        <EditorWrap language='JS'>
+        <CodeMirror
             theme={MyTheme}
-            onChange={setHtml}
+            onChange={setJs}
             height="100%"
             width='100%'
             className='code-mirror-wrapper'
+            extensions={extensionsJS}
+            value={js}
+
+            />
+        </EditorWrap>
+
+        <EditorWrap language='CSS'>
+        <CodeMirror
+            theme={MyTheme}
+            onChange={setCss}
+            height="100%"
+            width='100%'
+            className='code-mirror-wrapper'
+            extensions={extensionsCSS}
+            value={css}
+            />
+        </EditorWrap>
+
+        <EditorWrap language='HTML'>
+        <CodeMirror
+            theme={MyTheme}
+            onChange={setHtml}
+            height="100%"
+            className='code-mirror-wrapper'
             extensions={extensionsXML}
             value={html}
+            
             />
-        </div>
-
-
-
-
+        </EditorWrap>
 
       </div>
       <div className='pane'>

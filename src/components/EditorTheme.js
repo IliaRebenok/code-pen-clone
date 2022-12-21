@@ -1,6 +1,6 @@
 
 import { basicSetup, minimalSetup } from '@uiw/codemirror-extensions-basic-setup';
-import { EditorView } from '@codemirror/view';
+import { EditorView, } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
 import { createTheme } from '@uiw/codemirror-themes';
 import { tags as t } from '@lezer/highlight';
@@ -14,14 +14,18 @@ const state = EditorState.create({
             dropCursor: false,
             allowMultipleSelections: false,
             indentOnInput: false,
+            
         }),
     ],
 });
 
 const view = new EditorView({
+   
     parent: document.querySelector('#editor'),
     state,
+    
 });
+
 
 const MyTheme = createTheme({
     theme: 'light',
@@ -34,6 +38,7 @@ const MyTheme = createTheme({
         lineHighlight: '#8a91991a',
         gutterBackground: '#666',
         gutterForeground: '#fff7',
+        
     },
     styles: [
         { tag: t.comment, color: '#787b8099' },
