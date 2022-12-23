@@ -55,7 +55,7 @@ iframe {
 .editor-title {
   display: flex;
   justify-content: space-between;
-  color: aqua;
+  color: aquamarine;
   background-color: #222;
   padding: .5rem .5rem .5rem 1rem ;
   border-top-left-radius: .3rem;

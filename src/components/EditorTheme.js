@@ -1,6 +1,5 @@
-
-import { basicSetup, minimalSetup } from '@uiw/codemirror-extensions-basic-setup';
-import { EditorView, } from '@codemirror/view';
+import { basicSetup } from '@uiw/codemirror-extensions-basic-setup';
+import { EditorView } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
 import { createTheme } from '@uiw/codemirror-themes';
 import { tags as t } from '@lezer/highlight';
@@ -28,7 +27,7 @@ const view = new EditorView({
 
 
 const MyTheme = createTheme({
-    theme: 'light',
+    theme: 'dark',
     settings: {
         background: '#444',
         foreground: '#fefefe',

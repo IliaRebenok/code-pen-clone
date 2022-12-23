@@ -10,7 +10,7 @@ export default function EditorWrap(props) {
 
     function changeButtonState() {
         setOpen(prevOpen => ! prevOpen);
-        console.log(`button is pressed, state is ${open}`)
+        console.log(`button is pressed, expanded is ${open}`)
     }
     
 

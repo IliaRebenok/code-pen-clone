@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MyTheme from './EditorTheme'
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
@@ -7,7 +7,6 @@ import { css } from '@codemirror/lang-css';
 import EditorWrap from './EditorWrap';
 import { EditorView } from '@codemirror/view';
 import useLocalStorage from '../hooks/UseLocalStorage'
-import { useEffect } from 'react';
 
 const extensionsJS = [javascript({ jsx: true }), EditorView.lineWrapping];
 const extensionsXML = [html({ html: true }), EditorView.lineWrapping];
@@ -79,13 +78,13 @@ function App() {
         </EditorWrap>
 
       </div>
-      <div className='pane'>
+      <div height='100px' className='pane'>
         <iframe
           srcDoc={srcDoc}
           title='output'
           sandbox='allow-scripts'
           width='100%'
-          height='100%'
+          
         />
       </div>
     </div>
