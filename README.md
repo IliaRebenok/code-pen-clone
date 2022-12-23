@@ -1,2 +1,21 @@
-That's going to be a clone of the great CodePen sandbox for trying rect.js coding.
-I will just add some minor styling features.
+That's going to be a CSS+HTML+JS code editor.
+Styling and reseiqzing features will be added soon ☺️
+
+
+Currently the editor do: 
++ work with CSS, HTML, and JS languajes
++ the result is displayed in the field under in real time
++ saving the text in your local storage so you will not loose your brilliant code after refreshing the page!
++ any of three editors can be shrank if you don't use it and expanded again
+
+What is planned to be added to project:
+- clearing text button for editors to erase all the text from inputs
+- changing editors themes
+- resizeable output field for convinient work
+
+
+Technologies used in the project by far:
+- React.js
+- hooks: useState, useEffect, custom hooks useLocalStorage
+- codemirror v6 library
+- font awesome library for icons
