@@ -2,8 +2,6 @@ import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
 
-
-
 export default function EditorWrap(props) {
 
     const [open, setOpen] = useState(true);
@@ -13,7 +11,6 @@ export default function EditorWrap(props) {
         console.log(`button is pressed, expanded is ${open}`)
     }
     
-
     return (
         <div className={`editor-container ${open ? '': 'collapsed'}`}>
             <div className='editor-title'>
@@ -28,3 +25,5 @@ export default function EditorWrap(props) {
         </div>
     )
 }
+
+github.com/IliaRebenok/html-css-js-editor

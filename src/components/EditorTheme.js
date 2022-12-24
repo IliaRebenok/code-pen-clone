@@ -18,13 +18,6 @@ const state = EditorState.create({
     ],
 });
 
-const view = new EditorView({
-   
-    parent: document.querySelector('#editor'),
-    state,
-    
-});
-
 
 const MyTheme = createTheme({
     theme: 'dark',
