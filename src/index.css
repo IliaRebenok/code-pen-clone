@@ -10,8 +10,6 @@ body {
   
 }
 
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -26,7 +24,7 @@ iframe {
 } 
 
 .pane {
-  height: 50vh;
+  height: 47.5vh;
   display: flex;
 }
 
@@ -51,6 +49,35 @@ iframe {
   color: aquamarine;
   cursor: pointer;
 }
+
+.header-wrap{
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 0 .5rem;
+}
+
+.header-button{
+  height:25px;
+  width: 85px;
+  margin-right: 10px;
+  padding: 0 .5rem;
+  background-color: #444;
+  border-radius: 3px;
+  border: none;
+  color: #777;
+  cursor: pointer;
+  transition: ease-in 0.3;
+}
+
+.bright{
+  color: #fff;
+}
+
+.header-button:active{
+  transform: translateY(1px);
+}
+
 
 .editor-title {
   display: flex;

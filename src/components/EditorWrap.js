@@ -26,4 +26,3 @@ export default function EditorWrap(props) {
     )
 }
 
-github.com/IliaRebenok/html-css-js-editor
