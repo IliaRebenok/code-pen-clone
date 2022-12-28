@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import MyTheme from './EditorTheme'
+import MyTheme from './editor/EditorTheme'
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { html } from '@codemirror/lang-html';
 import { css } from '@codemirror/lang-css';
-import EditorWrap from './EditorWrap';
+import EditorWrap from './editor/EditorWrap';
 import { EditorView } from '@codemirror/view';
 import useLocalStorage from '../hooks/UseLocalStorage'
-import Header from './Header';
+import Header from './header/Header';
 
 const extensionsJS = [javascript({ jsx: true }), EditorView.lineWrapping];
 const extensionsXML = [html({ html: true }), EditorView.lineWrapping];
@@ -26,7 +26,7 @@ function App() {
   const [srcDoc, setSrcDoc] = useState('');
   const [clear, setClear] = useState(false);
   const [undo, setUndo] = useState(false);
-
+  const [undoLight, setUndoLight] = useState(false);
 
 
   useEffect(() => {
@@ -37,6 +37,7 @@ function App() {
           Js: '',
           Css: ''
         };
+        setUndoLight(false);
       }
       setSrcDoc(`
         <html>
@@ -45,6 +46,7 @@ function App() {
         <script>${js}</script>
         </html>
       `)
+      
       console.log(tmp);
       console.log('from effect');
     }, 300)
@@ -61,7 +63,8 @@ function App() {
         Html: html,
         Js: js,
         Css: css
-      }
+      };
+      setUndoLight(true);
     }
 
     console.log(tmp)
@@ -84,13 +87,14 @@ function App() {
     setJs(tmp.Js);
     setCss(tmp.Css);
     setUndo(false);
+    setUndoLight(false);
     console.log('undo clearing data');
     }
   }
 
   return (
     <div>
-      <Header setClear={setClear} clear={clear} setUndo={setUndo} />
+      <Header setClear={setClear} clear={clear} setUndo={setUndo} undoLight={undoLight} />
       <div className='pane top-pane'>
         <EditorWrap language='JS'>
           <CodeMirror
@@ -98,7 +102,7 @@ function App() {
             onChange={setJs}
             height="100%"
             width='100%'
-            className='code-mirror-wrapper'
+            className='codeMirrorWrapper'
             extensions={extensionsJS}
             value={js}
           />
@@ -109,7 +113,7 @@ function App() {
             onChange={setCss}
             height="100%"
             width='100%'
-            className='code-mirror-wrapper'
+            className='codeMirrorWrapper'
             extensions={extensionsCSS}
             value={css}
           />
@@ -119,7 +123,7 @@ function App() {
             theme={MyTheme}
             onChange={setHtml}
             height="100%"
-            className='code-mirror-wrapper'
+            className='codeMirrorWrapper'
             extensions={extensionsXML}
             value={html}
           />

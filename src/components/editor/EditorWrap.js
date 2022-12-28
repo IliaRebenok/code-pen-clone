@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons';
+import s from './editor.module.css'
 
 export default function EditorWrap(props) {
 
@@ -12,11 +13,11 @@ export default function EditorWrap(props) {
     }
     
     return (
-        <div className={`editor-container ${open ? '': 'collapsed'}`}>
-            <div className='editor-title'>
+        <div className={`${s.editorContainer} ${open ? '' : s.collapsed}`}>
+            <div className={s.editorTitle}>
                 {props.language}                
                 <button 
-                    className='expand-button' 
+                    className={s.expandButton} 
                     onClick={changeButtonState}>
                     <FontAwesomeIcon icon={open ? faExpandAlt : faCompressAlt}/>
                 </button>

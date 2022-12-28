@@ -1,9 +1,7 @@
 import { basicSetup } from '@uiw/codemirror-extensions-basic-setup';
-import { EditorView } from '@codemirror/view';
 import { EditorState } from '@codemirror/state';
 import { createTheme } from '@uiw/codemirror-themes';
 import { tags as t } from '@lezer/highlight';
-
 
 const state = EditorState.create({
     doc: 'my source code',
