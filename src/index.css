@@ -20,7 +20,10 @@ iframe {
 }
 
 .top-pane {
-  background-color: #555;
+  overflow: auto;
+  resize: vertical;
+  padding-right: 10px;  
+  background-color: #333;
 } 
 
 .pane {

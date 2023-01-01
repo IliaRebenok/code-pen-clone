@@ -8,10 +8,10 @@ Currently the editor do:
 + saving the text in your local storage so you will not loose your brilliant code after refreshing the page!
 + any of three editors can be shrank if you don't use it and expanded again
 + clearing text button for editors to erase all the text from inputs
++ resizeable fields for convinient work (made by omly css by far)
 
 What is planned to be added to project:
 - changing editors themes
-- resizeable output field for convinient work
 
 
 Technologies used in the project by far:
