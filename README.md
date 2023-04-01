@@ -3,7 +3,7 @@ Styling and reseiqzing features will be added soon ☺️
 
 
 Currently the editor do: 
-+ work with CSS, HTML, and JS languajes
++ work with CSS, HTML, and JS
 + the result is displayed in the field under in real time
 + saving the text in your local storage so you will not loose your brilliant code after refreshing the page!
 + any of three editors can be shrank if you don't use it and expanded again
